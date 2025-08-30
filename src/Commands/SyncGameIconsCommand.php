@@ -24,7 +24,7 @@ class SyncGameIconsCommand extends Command
      * @var string
      */
     protected $signature = 'sync:game-icons-enum 
-        {--path=app/Enums/GameIcons.php : Path to the enum file}
+        {--path : Path to the enum file}
         {--dry-run : Show missing icons without modifying the file}';
 
     /**
