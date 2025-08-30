@@ -8294,14 +8294,6 @@ enum GameIcons: string implements HasLabel, ScalableIcon
         return $results;
     }
 
-     /**
-     * Get the icon name label.
-     */
-    public function getLabel(): string
-    {
-        return $this->value;
-    }
-
     /**
      * Get the icon for a specific size (Filament).
      */
