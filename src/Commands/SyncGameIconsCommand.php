@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 /**
- * SyncGameIconsEnum Command
+ * SyncGameIconsCommand Command
  *
  * Keeps your GameIcons enum synchronized with the installed
  * codeat3/blade-game-icons package by adding missing cases.
@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
  *   php artisan sync:game-icons-enum
  *   php artisan sync:game-icons-enum --dry-run
  */
-class SyncGameIconsEnum extends Command
+class SyncGameIconsCommand extends Command
 {
     /**
      * The name and signature of the console command.
