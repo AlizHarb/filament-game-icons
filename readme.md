@@ -395,7 +395,7 @@ The package includes a handy Artisan command to **keep your `GameIcons` enum alw
 ````bash
 php artisan sync:game-icons-enum
 php artisan sync:game-icons-enum --dry-run
-```
+````
 
 ## Theming & Customization
 
