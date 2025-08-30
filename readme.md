@@ -389,30 +389,14 @@ public function boot(): void
 }
 ```
 
-## Performance Optimization
-
-For optimal performance in production:
-
-```bash
-# Cache all blade icons (including game icons)
-php artisan icons:cache
-
-# Clear icon cache when needed
-php artisan icons:clear
-```
-
-Add to your deployment script:
-
-```bash
-php artisan icons:cache
-```
-
 ### Console Command: Sync Icons
 
 The package includes a handy Artisan command to **keep your `GameIcons` enum always up to date** with the latest icons from the `blade-game-icons` package.
 
 ````bash
-php artisan game-icons:sync
+php artisan sync:game-icons-enum
+php artisan sync:game-icons-enum --dry-run
+```
 
 ## Theming & Customization
 
