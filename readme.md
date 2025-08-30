@@ -27,13 +27,6 @@ composer require alizharb/filament-game-icons
 
 This package automatically installs `codeat3/blade-game-icons` as a dependency.
 
-For better performance in production, publish and cache the icons:
-
-```bash
-php artisan vendor:publish --tag=blade-game-icons
-php artisan icons:cache
-```
-
 ## Usage
 
 ### Basic Usage
