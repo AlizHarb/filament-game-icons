@@ -8295,11 +8295,11 @@ enum GameIcons: string implements HasLabel, ScalableIcon
     }
 
      /**
-     * Get the icon name with the "game-icons-" prefix.
+     * Get the icon name label.
      */
     public function getLabel(): string
     {
-        return "game-icons-{$this->value}";
+        return $this->value;
     }
 
     /**
