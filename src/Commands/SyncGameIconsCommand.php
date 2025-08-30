@@ -43,7 +43,7 @@ class SyncGameIconsCommand extends Command
         $this->components->info('🚀 Starting Game Icons Synchronization');
 
         $packagePath = base_path('vendor/codeat3/blade-game-icons/resources/svg');
-        $enumPath = base_path($this->option('path'));
+        $enumPath = $this->option('path') ? $this->option('path') : base_path('vendor/alizharb/filament-game-icons/src/Enums/GameIcons.php');
 
         // Validate requirements
         if (! File::exists($packagePath)) {
