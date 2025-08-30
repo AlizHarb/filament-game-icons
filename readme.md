@@ -1,8 +1,7 @@
 # Filament Game Icons
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/alizharb/filament-game-icons.svg?style=flat-square)](https://packagist.org/packages/alizharb/filament-game-icons)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/alizharb/filament-game-icons/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alizharb/filament-game-icons/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/alizharb/filament-game-icons/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/alizharb/filament-game-icons/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/alizharb/filament-game-icons.svg?style=flat-square)](https://packagist.org/packages/alizharb/filament-game-icons)
 
 A comprehensive FilamentPHP 4 package that provides a type-safe enum for all 4000+ Game Icons from [game-icons.net](https://game-icons.net/). This package gives you IDE autocompletion, type safety, and easy integration with all FilamentPHP components.
