@@ -2,7 +2,6 @@
 
 <div align="center">
     <img src="https://banners.beyondco.de/Filament%20Game%20Icons.png?theme=light&packageManager=composer+require&packageName=alizharb%2Ffilament-game-icons&pattern=architect&style=style_1&description=Type-safe%20Game%20Icons%20enum%20for%20FilamentPHP%204%20with%204000+%20icons%20from%20game-icons.net.&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Filament Game Icons">
-</div>
 
 **The ultimate Game Icons collection for FilamentPHP**
 
