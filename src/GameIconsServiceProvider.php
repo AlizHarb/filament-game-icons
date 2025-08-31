@@ -21,10 +21,6 @@ class GameIconsServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
-        FilamentAsset::register([
-            Css::make('game-icons', __DIR__ . '/../resources/css/game-icons.css'),
-        ], self::$name);
-
         $this->publishes([
             __DIR__ . '/../resources/css/game-icons.css' => resource_path('vendor/filament-game-icons/game-icons.css'),
         ], 'filament-game-icons-styles');
@@ -32,5 +28,12 @@ class GameIconsServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/css/game-icons.css' => public_path('vendor/filament-game-icons/game-icons.css'),
         ], 'filament-game-icons-public');
+    }
+
+    public function packageBooted(): void
+    {
+        FilamentAsset::register([
+            Css::make('game-icons', __DIR__ . '/../resources/css/game-icons.css'),
+        ], package: self::$name);
     }
 }

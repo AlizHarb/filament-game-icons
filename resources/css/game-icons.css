@@ -1,10 +1,8 @@
 /* Transparent Game Icons for FilamentPHP */
-[class*="gameicon-"] svg {
-  background: transparent !important;
-  fill: currentColor;
+.fi-icon {
+  fill: transparent !important;
 }
 
-.game-icon-transparent svg {
-  background: none !important;
-  fill: currentColor;
+.fi-sidebar-item-icon {
+  fill: transparent !important;
 }

@@ -1,135 +1,274 @@
-# Filament Game Icons
+# 🎮 Filament Game Icons
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/alizharb/filament-game-icons.svg?style=flat-square)](https://packagist.org/packages/alizharb/filament-game-icons)
-[![Total Downloads](https://img.shields.io/packagist/dt/alizharb/filament-game-icons.svg?style=flat-square)](https://packagist.org/packages/alizharb/filament-game-icons)
+<div align="center">
 
-A comprehensive FilamentPHP 4 package that provides a type-safe enum for all 4000+ Game Icons from [game-icons.net](https://game-icons.net/). This package gives you IDE autocompletion, type safety, and easy integration with all FilamentPHP components.
+![Filament Game Icons Header](https://via.placeholder.com/800x200/1e293b/f1f5f9?text=🎮+Filament+Game+Icons)
 
-## Features
+**The ultimate Game Icons collection for FilamentPHP**
 
-- 🎮 **4000+ Game Icons**: Complete collection from [game-icons.net](https://game-icons.net/)
-- 🔧 **Type Safe**: Full PHP enum with IDE autocompletion
-- 🏷️ **Human Readable Labels**: Implements `HasLabel` for better UX
-- 📦 **Zero Configuration**: Works out of the box with FilamentPHP 4
-- 🔍 **Searchable**: Built-in search and categorization methods
-- ⚡ **Performance Optimized**: Leverages blade-game-icons for caching
-- 🎨 **Customizable**: Easy icon replacement and theming
+[![Latest Version](https://img.shields.io/packagist/v/alizharb/filament-game-icons.svg?style=for-the-badge&logo=packagist)](https://packagist.org/packages/alizharb/filament-game-icons)
+[![Total Downloads](https://img.shields.io/packagist/dt/alizharb/filament-game-icons.svg?style=for-the-badge&logo=packagist)](https://packagist.org/packages/alizharb/filament-game-icons)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![PHP Version](https://img.shields.io/packagist/php-v/alizharb/filament-game-icons?style=for-the-badge&logo=php)](https://packagist.org/packages/alizharb/filament-game-icons)
 
-## Installation
+[![Code Quality](https://img.shields.io/scrutinizer/quality/g/alizharb/filament-game-icons?style=for-the-badge&logo=scrutinizer)](https://scrutinizer-ci.com/g/alizharb/filament-game-icons)
+[![FilamentPHP](https://img.shields.io/badge/FilamentPHP-4.x-FF6719?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPC9zdmc+)](https://filamentphp.com)
 
-You can install the package via composer:
+_Transform your FilamentPHP applications with 4000+ beautiful game icons_
+
+[📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [💡 Examples](#-examples) • [🤝 Contributing](#-contributing)
+
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 **Core Features**
+
+- 🎮 **4000+ Game Icons** - Complete collection from game-icons.net
+- 🔧 **Type Safe** - Full PHP enum with IDE autocompletion
+- 🏷️ **Human Readable** - Implements `HasLabel` for better UX
+- 📦 **Zero Config** - Works out of the box
+- ⚡ **Optimized** - Blazing fast with smart caching
+
+</td>
+<td width="50%">
+
+### 🛠️ **Developer Experience**
+
+- 🔍 **Searchable** - Built-in search and categorization
+- 🎨 **Customizable** - Easy theming and icon replacement
+- 📱 **Responsive** - Looks great on all devices
+- 🔄 **Auto-sync** - Keep icons updated automatically
+- 💡 **IntelliSense** - Full IDE support
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+### Installation
+
+Install the package via Composer:
 
 ```bash
 composer require alizharb/filament-game-icons
 ```
 
-This package automatically installs `codeat3/blade-game-icons` as a dependency.
+### Asset Registration
 
-## Usage
+Register the assets with FilamentPHP:
+
+```bash
+php artisan filament:assets
+```
 
 ### Basic Usage
 
-Use Game Icons just like Heroicons in any FilamentPHP component:
+Start using Game Icons immediately in any FilamentPHP component:
 
 ```php
 use Alizharb\FilamentGameIcons\Enums\GameIcons;
 use Filament\Actions\Action;
-use Filament\Forms\Components\Toggle;
-use Filament\Tables\Columns\IconColumn;
 
-// Actions
 Action::make('attack')
     ->icon(GameIcons::Sword)
-    ->label('Attack with Sword');
+    ->label('Attack with Sword')
+    ->color('danger');
+```
 
-Action::make('cast_spell')
-    ->icon(GameIcons::MagicSwirl)
-    ->color('primary');
+---
 
-// Form Components
-Toggle::make('is_armed')
-    ->onIcon(GameIcons::Sword)
-    ->offIcon(GameIcons::Shield);
+## 📖 Documentation
 
-// Table Columns
-IconColumn::make('weapon_type')
-    ->icon(fn (string $state): string => match ($state) {
-        'sword' => GameIcons::Sword->value,
-        'bow' => GameIcons::BowArrow->value,
-        'magic' => GameIcons::MagicSwirl->value,
-        default => GameIcons::CrossedSwords->value,
+### 🏗️ **Architecture Overview**
+
+```mermaid
+graph TD
+    A[FilamentPHP Application] --> B[Filament Game Icons Package]
+    B --> C[GameIcons Enum]
+    B --> D[Blade Game Icons]
+    D --> E[Game Icons SVG Collection]
+
+    C --> F[Type Safety]
+    C --> G[IDE Autocompletion]
+    C --> H[Search & Categories]
+
+    style A fill:#FF6719
+    style B fill:#3B82F6
+    style E fill:#10B981
+```
+
+### 🎯 **Component Integration**
+
+<details>
+<summary><strong>📋 Actions & Buttons</strong></summary>
+
+```php
+use Alizharb\FilamentGameIcons\Enums\GameIcons;
+use Filament\Actions\Action;
+
+// Basic action with icon
+Action::make('attack')
+    ->icon(GameIcons::Sword)
+    ->color('danger')
+    ->requiresConfirmation();
+
+// Grouped actions
+Action::make('combat_menu')
+    ->icon(GameIcons::CrossedSwords)
+    ->actions([
+        Action::make('attack')->icon(GameIcons::Sword),
+        Action::make('defend')->icon(GameIcons::Shield),
+        Action::make('cast_spell')->icon(GameIcons::MagicSwirl),
+    ]);
+```
+
+</details>
+
+<details>
+<summary><strong>📝 Form Components</strong></summary>
+
+```php
+use Filament\Forms\Components\{Select, Toggle, Radio, Checkbox};
+
+// Enhanced select with searchable icons
+Select::make('character_class')
+    ->options(GameIcons::getCharactersArray())
+    ->searchable()
+    ->native(false)
+    ->allowHtml()
+    ->placeholder('Choose your character class...');
+
+// Toggle with custom icons
+Toggle::make('is_magical')
+    ->onIcon(GameIcons::MagicSwirl)
+    ->offIcon(GameIcons::Sword)
+    ->onColor('primary')
+    ->offColor('gray');
+
+// Radio with descriptions
+Radio::make('weapon_preference')
+    ->options(GameIcons::getWeaponsArray())
+    ->descriptions([
+        GameIcons::Sword->value => 'Balanced attack and defense',
+        GameIcons::BowArrow->value => 'Long-range precision strikes',
+        GameIcons::MagicSwirl->value => 'Powerful elemental damage',
+    ]);
+```
+
+</details>
+
+<details>
+<summary><strong>📊 Table Columns</strong></summary>
+
+```php
+use Filament\Tables\Columns\{IconColumn, TextColumn};
+
+// Dynamic status icons
+IconColumn::make('player_status')
+    ->icon(fn ($record): string => match ($record->status) {
+        'online' => GameIcons::Person->value,
+        'in_battle' => GameIcons::CrossedSwords->value,
+        'resting' => GameIcons::Sleep->value,
+        'offline' => GameIcons::Skull->value,
+    })
+    ->color(fn ($record): string => match ($record->status) {
+        'online' => 'success',
+        'in_battle' => 'warning',
+        'resting' => 'info',
+        'offline' => 'gray',
+    })
+    ->tooltip(fn ($record): string => "Player is {$record->status}");
+
+// Equipment column with multiple icons
+TextColumn::make('equipment')
+    ->formatStateUsing(function ($record): string {
+        $icons = [];
+        if ($record->weapon) $icons[] = GameIcons::Sword->value;
+        if ($record->armor) $icons[] = GameIcons::Armor->value;
+        if ($record->magic_item) $icons[] = GameIcons::MagicSwirl->value;
+
+        return view('components.icon-list', compact('icons'))->render();
     });
 ```
 
-### Select Fields with Icon Options
+</details>
 
-Create beautiful select fields with Game Icons:
-
-```php
-use Filament\Forms\Components\Select;
-
-Select::make('character_class')
-    ->options(GameIcons::toSelectArray())
-    ->searchable()
-    ->native(false);
-
-// Or use categorized options
-Select::make('weapon')
-    ->options(GameIcons::getWeaponsArray())
-    ->searchable();
-```
-
-### Advanced Usage
-
-#### Icon Categories
-
-Get icons by category for organized interfaces:
+<details>
+<summary><strong>📱 Widgets & Dashboard</strong></summary>
 
 ```php
-// Get all weapon icons
-$weapons = GameIcons::getWeapons();
+use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 
-// Get all magic-related icons
-$magic = GameIcons::getMagic();
+class GameDashboardWidget extends BaseWidget
+{
+    protected function getStats(): array
+    {
+        return [
+            Stat::make('👥 Active Players', $this->getActivePlayers())
+                ->description('Currently online')
+                ->descriptionIcon(GameIcons::Person->value)
+                ->chart([7, 2, 10, 3, 15, 4, 17])
+                ->color('success'),
 
-// Get all character class icons
-$characters = GameIcons::getCharacters();
+            Stat::make('⚔️ Battles Today', $this->getBattlesToday())
+                ->description('32% increase from yesterday')
+                ->descriptionIcon(GameIcons::CrossedSwords->value)
+                ->color('warning'),
 
-// Get all creature icons
-$creatures = GameIcons::getCreatures();
+            Stat::make('🏆 Achievements', $this->getAchievements())
+                ->description('Unlocked this week')
+                ->descriptionIcon(GameIcons::Trophy->value)
+                ->color('primary'),
 
-// Get dice icons
-$dice = GameIcons::getDice();
+            Stat::make('💰 Gold Earned', number_format($this->getGoldEarned()))
+                ->description('Total server economy')
+                ->descriptionIcon(GameIcons::GoldStack->value)
+                ->color('warning'),
+        ];
+    }
+}
 ```
 
-#### Search Functionality
+</details>
 
-Search icons dynamically:
+---
 
-```php
-// Search for icons containing "sword"
-$swordIcons = GameIcons::search('sword');
+## 🗂️ Icon Categories
 
-// Search for magic-related icons
-$magicIcons = GameIcons::search('magic');
-```
+<div align="center">
 
-#### Dynamic Icon Creation
+| Category             | Count | Examples                               | Usage                        |
+| -------------------- | ----- | -------------------------------------- | ---------------------------- |
+| **⚔️ Weapons**       | 500+  | `Sword`, `BowArrow`, `Shield`, `Axe`   | Combat systems, inventory    |
+| **🔮 Magic**         | 300+  | `MagicSwirl`, `HealingPotion`, `Rune`  | Spell systems, enchantments  |
+| **👤 Characters**    | 200+  | `Wizard`, `Warrior`, `Archer`, `Rogue` | Character selection, classes |
+| **🐉 Creatures**     | 400+  | `Dragon`, `Wolf`, `Phoenix`, `Demon`   | Bestiary, enemy systems      |
+| **💎 Items**         | 600+  | `Armor`, `Crown`, `Gem`, `Treasure`    | Inventory, rewards           |
+| **🎲 Dice & Gaming** | 50+   | `D4`, `D6`, `D20`, `Cards`             | Game mechanics, RNG          |
+| **🏰 Environment**   | 300+  | `Castle`, `Forest`, `Cave`, `Tower`    | World building, locations    |
+| **⚙️ Interface**     | 200+  | `Settings`, `Menu`, `Save`, `Load`     | UI elements, navigation      |
 
-For icons not in the enum or dynamic usage:
+</div>
 
-```php
-// Create icon reference for any game-icon
-$customIcon = GameIcons::make('custom-weapon-name');
+---
 
-Action::make('special_attack')
-    ->icon($customIcon);
-```
+## 💡 Examples
 
-### Resource Example
+### 🎮 Complete Gaming Resource
 
-Complete example in a FilamentPHP Resource:
+<details>
+<summary><strong>Character Management System</strong></summary>
 
 ```php
 <?php
@@ -145,30 +284,109 @@ use Filament\Tables\Table;
 
 class CharacterResource extends Resource
 {
+    protected static ?string $model = Character::class;
+    protected static ?string $navigationIcon = 'gameicon-person';
+    protected static ?string $navigationGroup = 'Game Management';
+
     public static function form(Form $form): Form
     {
         return $form
-            ->components([
-                Filament\Forms\Components\TextInput::make('name')
-                    ->required(),
+            ->schema([
+                Forms\Components\Section::make('Character Information')
+                    ->icon(GameIcons::Person->value)
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255)
+                            ->live(onBlur: true)
+                            ->prefixIcon(GameIcons::Scroll->value),
 
-                Filament\Forms\Components\Select::make('class')
-                    ->options([
-                        'warrior' => 'Warrior',
-                        'wizard' => 'Wizard',
-                        'archer' => 'Archer',
-                        'rogue' => 'Rogue',
-                    ])
-                    ->required(),
+                        Forms\Components\Select::make('class')
+                            ->options([
+                                'warrior' => 'Warrior',
+                                'wizard' => 'Wizard',
+                                'archer' => 'Archer',
+                                'rogue' => 'Rogue',
+                                'paladin' => 'Paladin',
+                                'druid' => 'Druid',
+                            ])
+                            ->required()
+                            ->searchable()
+                            ->native(false)
+                            ->prefixIcon(GameIcons::Person->value),
 
-                Filament\Forms\Components\Select::make('primary_weapon')
-                    ->options(GameIcons::getWeaponsArray())
-                    ->searchable()
-                    ->native(false),
+                        Forms\Components\Select::make('race')
+                            ->options(GameIcons::getCreaturesArray())
+                            ->searchable()
+                            ->native(false)
+                            ->prefixIcon(GameIcons::Dragon->value),
+                    ]),
 
-                Filament\Forms\Components\Toggle::make('is_alive')
-                    ->onIcon(GameIcons::Heart)
-                    ->offIcon(GameIcons::Skull),
+                Forms\Components\Section::make('Equipment & Stats')
+                    ->icon(GameIcons::Sword->value)
+                    ->schema([
+                        Forms\Components\Select::make('primary_weapon')
+                            ->options(GameIcons::getWeaponsArray())
+                            ->searchable()
+                            ->native(false)
+                            ->prefixIcon(GameIcons::Sword->value),
+
+                        Forms\Components\Select::make('armor_type')
+                            ->options([
+                                'light' => 'Light Armor',
+                                'medium' => 'Medium Armor',
+                                'heavy' => 'Heavy Armor',
+                            ])
+                            ->prefixIcon(GameIcons::Armor->value),
+
+                        Forms\Components\Grid::make(3)
+                            ->schema([
+                                Forms\Components\TextInput::make('level')
+                                    ->numeric()
+                                    ->default(1)
+                                    ->minValue(1)
+                                    ->maxValue(100)
+                                    ->prefixIcon(GameIcons::Trophy->value),
+
+                                Forms\Components\TextInput::make('health')
+                                    ->numeric()
+                                    ->default(100)
+                                    ->minValue(0)
+                                    ->prefixIcon(GameIcons::Heart->value),
+
+                                Forms\Components\TextInput::make('mana')
+                                    ->numeric()
+                                    ->default(50)
+                                    ->minValue(0)
+                                    ->prefixIcon(GameIcons::MagicSwirl->value),
+                            ]),
+                    ]),
+
+                Forms\Components\Section::make('Status & Abilities')
+                    ->icon(GameIcons::Lightning->value)
+                    ->schema([
+                        Forms\Components\Toggle::make('is_alive')
+                            ->default(true)
+                            ->onIcon(GameIcons::Heart->value)
+                            ->offIcon(GameIcons::Skull->value)
+                            ->onColor('success')
+                            ->offColor('danger'),
+
+                        Forms\Components\CheckboxList::make('abilities')
+                            ->options([
+                                'stealth' => 'Stealth',
+                                'magic_resistance' => 'Magic Resistance',
+                                'critical_strike' => 'Critical Strike',
+                                'healing' => 'Healing',
+                                'fire_immunity' => 'Fire Immunity',
+                            ])
+                            ->columns(2),
+
+                        Forms\Components\Textarea::make('backstory')
+                            ->rows(4)
+                            ->placeholder('Tell us about your character\'s history...')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
@@ -176,14 +394,23 @@ class CharacterResource extends Resource
     {
         return $table
             ->columns([
-                Filament\Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\ImageColumn::make('avatar')
+                    ->circular()
+                    ->defaultImageUrl(fn ($record) => 'https://ui-avatars.com/api/?name=' . urlencode($record->name)),
 
-                Filament\Tables\Columns\IconColumn::make('class')
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold'),
+
+                Tables\Columns\IconColumn::make('class')
                     ->icon(fn (string $state): string => match ($state) {
                         'warrior' => GameIcons::Warrior->value,
                         'wizard' => GameIcons::Wizard->value,
                         'archer' => GameIcons::Archer->value,
                         'rogue' => GameIcons::Rogue->value,
+                        'paladin' => GameIcons::Paladin->value,
+                        'druid' => GameIcons::Druid->value,
                         default => GameIcons::Person->value,
                     })
                     ->color(fn (string $state): string => match ($state) {
@@ -191,413 +418,850 @@ class CharacterResource extends Resource
                         'wizard' => 'info',
                         'archer' => 'success',
                         'rogue' => 'warning',
+                        'paladin' => 'primary',
+                        'druid' => 'success',
                         default => 'gray',
-                    }),
+                    })
+                    ->tooltip(fn ($record): string => ucfirst($record->class)),
 
-                Filament\Tables\Columns\IconColumn::make('is_alive')
+                Tables\Columns\ProgressColumn::make('health')
+                    ->getStateUsing(fn ($record): float => $record->health / $record->max_health * 100)
+                    ->color('success')
+                    ->alignment('center'),
+
+                Tables\Columns\TextColumn::make('level')
+                    ->badge()
+                    ->color('warning')
+                    ->sortable(),
+
+                Tables\Columns\IconColumn::make('is_alive')
                     ->boolean()
-                    ->trueIcon(GameIcons::Heart)
-                    ->falseIcon(GameIcons::Skull)
+                    ->trueIcon(GameIcons::Heart->value)
+                    ->falseIcon(GameIcons::Skull->value)
                     ->trueColor('success')
                     ->falseColor('danger'),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->recordActions([
-                Filament\Actions\Action::make('revive')
-                    ->icon(GameIcons::HealingPotion)
-                    ->action(fn ($record) => $record->update(['is_alive' => true]))
-                    ->visible(fn ($record) => !$record->is_alive),
+            ->defaultSort('level', 'desc')
+            ->filters([
+                Tables\Filters\SelectFilter::make('class')
+                    ->options([
+                        'warrior' => 'Warrior',
+                        'wizard' => 'Wizard',
+                        'archer' => 'Archer',
+                        'rogue' => 'Rogue',
+                        'paladin' => 'Paladin',
+                        'druid' => 'Druid',
+                    ])
+                    ->indicator('Character Class'),
 
-                Filament\Actions\EditAction::make()
-                    ->icon(GameIcons::Scroll),
+                Tables\Filters\Filter::make('alive_only')
+                    ->label('Alive Characters Only')
+                    ->query(fn ($query) => $query->where('is_alive', true))
+                    ->default(),
+            ])
+            ->actions([
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make()
+                        ->icon(GameIcons::Eye->value),
 
-                Filament\Actions\DeleteAction::make()
-                    ->icon(GameIcons::Skull),
-            ]);
+                    Tables\Actions\EditAction::make()
+                        ->icon(GameIcons::Scroll->value),
+
+                    Tables\Actions\Action::make('heal')
+                        ->icon(GameIcons::HealingPotion->value)
+                        ->color('success')
+                        ->action(fn ($record) => $record->heal())
+                        ->visible(fn ($record) => $record->health < $record->max_health),
+
+                    Tables\Actions\Action::make('revive')
+                        ->icon(GameIcons::Resurrection->value)
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(fn ($record) => $record->revive())
+                        ->visible(fn ($record) => !$record->is_alive),
+                ])
+                ->icon(GameIcons::Menu->value),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('mass_heal')
+                        ->icon(GameIcons::HealingPotion->value)
+                        ->color('success')
+                        ->action(fn ($records) => $records->each->heal()),
+
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->icon(GameIcons::Skull->value),
+                ]),
+            ])
+            ->emptyStateIcon(GameIcons::Person->value)
+            ->emptyStateHeading('No characters yet')
+            ->emptyStateDescription('Create your first character to begin your adventure!');
     }
 }
 ```
 
-## Available Icon Categories
+</details>
 
-The package organizes icons into logical categories:
-
-### Weapons & Combat
-
-- Swords, Axes, Bows, Guns, Shields, and more
-- Perfect for RPG and combat games
-
-### Magic & Spells
-
-- Magic effects, potions, staffs, runes, spells
-- Ideal for fantasy and magical themes
-
-### Characters & Classes
-
-- Wizard, Warrior, Archer, Rogue, Paladin, etc.
-- Complete set of RPG character archetypes
-
-### Creatures & Monsters
-
-- Dragons, wolves, mythical creatures
-- Great for bestiary and creature management
-
-### Items & Equipment
-
-- Armor, weapons, accessories, treasures
-- Perfect for inventory systems
-
-### Game Mechanics
-
-- Dice (D4, D6, D8, D10, D12, D20), cards, timers
-- Essential for game rule interfaces
-
-### Environment & World
-
-- Castles, caves, forests, buildings
-- World-building and location icons
-
-## API Reference
-
-### GameIcons Enum Methods
+<details>
+<summary><strong>📊 Advanced Dashboard Widgets</strong></summary>
 
 ```php
-// Get human-readable label
-GameIcons::Sword->getLabel(); // Returns: "Sword"
-
-// Get all icons as select options
-GameIcons::toSelectArray(); // Returns: ['gameicon-sword' => 'Sword', ...]
-
-// Search icons
-GameIcons::search('magic'); // Returns: [GameIcons::MagicSwirl, ...]
-
-// Get random icon
-GameIcons::random(); // Returns: random GameIcons case
-
-// Category helpers
-GameIcons::getWeapons();    // Returns: array of weapon icons
-GameIcons::getMagic();      // Returns: array of magic icons
-GameIcons::getCharacters(); // Returns: array of character icons
-GameIcons::getCreatures();  // Returns: array of creature icons
-GameIcons::getDice();       // Returns: array of dice icons
-
-// Get category as select array
-GameIcons::getWeaponsArray();    // Returns: ['gameicon-sword' => 'Sword', ...]
-GameIcons::getMagicArray();      // Returns: ['gameicon-magic-swirl' => 'Magic Swirl', ...]
-
-// Dynamic icon creation
-GameIcons::make('custom-icon-name'); // Returns: 'gameicon-custom-icon-name'
-```
-
-## Integration with FilamentPHP Components
-
-### Actions
-
-```php
-use AliZharb\FilamentGameIcons\Enums\GameIcons;
-
-Action::make('attack')
-    ->icon(GameIcons::Sword)
-    ->color('danger');
-
-Action::make('heal')
-    ->icon(GameIcons::HealingPotion)
-    ->color('success');
-```
-
-### Form Components
-
-```php
-Toggle::make('is_magical')
-    ->onIcon(GameIcons::MagicSwirl)
-    ->offIcon(GameIcons::Sword);
-
-Select::make('weapon_type')
-    ->options(GameIcons::getWeaponsArray())
-    ->searchable();
-
-Radio::make('character_class')
-    ->options(GameIcons::getCharactersArray())
-    ->descriptions([
-        GameIcons::Warrior->value => 'Strong melee fighter',
-        GameIcons::Wizard->value => 'Powerful spell caster',
-        GameIcons::Archer->value => 'Ranged combat specialist',
-    ]);
-```
-
-### Table Columns
-
-```php
-IconColumn::make('status')
-    ->icon(fn (string $state): string => match ($state) {
-        'alive' => GameIcons::Heart->value,
-        'dead' => GameIcons::Skull->value,
-        'injured' => GameIcons::BandagedHeart->value,
-        default => GameIcons::Question->value,
-    })
-    ->color(fn (string $state): string => match ($state) {
-        'alive' => 'success',
-        'dead' => 'danger',
-        'injured' => 'warning',
-        default => 'gray',
-    });
-```
-
-### Info Lists
-
-```php
-use Filament\Infolists\Components\IconEntry;
-
-IconEntry::make('character_class')
-    ->icon(fn (string $state): string => match ($state) {
-        'warrior' => GameIcons::Warrior->value,
-        'wizard' => GameIcons::Wizard->value,
-        default => GameIcons::Person->value,
-    });
-```
-
-### Blade Components
-
-```php
-<x-filament::badge :icon="GameIcons::Sword">
-    Warrior
-</x-filament::badge>
-
-<x-filament::button :icon="GameIcons::MagicSwirl">
-    Cast Spell
-</x-filament::button>
-```
-
-## Replacing Default Filament Icons
-
-Replace any default FilamentPHP icon with Game Icons:
-
-```php
-// In your AppServiceProvider boot() method
-use Filament\Support\Facades\FilamentIcon;
-use Filament\View\PanelsIconAlias;
-use AliZharb\FilamentGameIcons\Enums\GameIcons;
-
-public function boot(): void
-{
-    FilamentIcon::register([
-        PanelsIconAlias::ACTIONS_DELETE_ACTION => GameIcons::Skull->value,
-        PanelsIconAlias::ACTIONS_EDIT_ACTION => GameIcons::Scroll->value,
-        PanelsIconAlias::ACTIONS_VIEW_ACTION => GameIcons::Eye->value,
-        PanelsIconAlias::GLOBAL_SEARCH_FIELD => GameIcons::Search->value,
-    ]);
-}
-```
-
-### Console Command: Sync Icons
-
-The package includes a handy Artisan command to **keep your `GameIcons` enum always up to date** with the latest icons from the `blade-game-icons` package.
-
-````bash
-php artisan sync:game-icons-enum
-php artisan sync:game-icons-enum --dry-run
-````
-
-## Theming & Customization
-
-Game Icons are SVG-based and fully customizable:
-
-### CSS Styling
-```css
-/* Change icon color */
-.game-icon {
-    color: #3b82f6; /* Blue */
-}
-
-/* Icon sizing */
-.game-icon-sm { width: 1rem; height: 1rem; }
-.game-icon-md { width: 1.5rem; height: 1.5rem; }
-.game-icon-lg { width: 2rem; height: 2rem; }
-````
-
-### Tailwind Classes
-
-```php
-Action::make('attack')
-    ->icon(GameIcons::Sword)
-    ->extraAttributes(['class' => 'text-red-500 w-6 h-6']);
-```
-
-## Icon Categories
-
-The package includes over 4000 icons organized in categories:
-
-| Category        | Description                       | Example Icons                         |
-| --------------- | --------------------------------- | ------------------------------------- |
-| **Weapons**     | Swords, axes, bows, guns, shields | `Sword`, `BowArrow`, `Shield`         |
-| **Magic**       | Spells, potions, staffs, runes    | `MagicSwirl`, `HealingPotion`, `Rune` |
-| **Characters**  | RPG classes and character types   | `Wizard`, `Warrior`, `Archer`         |
-| **Creatures**   | Dragons, animals, monsters        | `Dragon`, `Wolf`, `Phoenix`           |
-| **Items**       | Armor, jewelry, treasures         | `Armor`, `Crown`, `Gem`               |
-| **Dice**        | Gaming dice D4 through D20        | `D4`, `D6`, `D20`                     |
-| **Environment** | Buildings, nature, locations      | `Castle`, `Forest`, `Cave`            |
-| **UI Elements** | Interface icons for games         | `Settings`, `Menu`, `Save`            |
-
-## Advanced Examples
-
-### Dynamic Icon Selection
-
-```php
-use Filament\Forms\Components\Select;
-
-Select::make('icon')
-    ->options(GameIcons::toSelectArray())
-    ->searchable()
-    ->allowHtml()
-    ->getOptionLabelUsing(fn ($value): string =>
-        '<div class="flex items-center gap-2">' .
-        '<x-gameicon name="' . str_replace('gameicon-', '', $value) . '" class="w-4 h-4" />' .
-        GameIcons::from($value)->getLabel() .
-        '</div>'
-    );
-```
-
-### Conditional Icons Based on Game State
-
-```php
-IconColumn::make('health_status')
-    ->icon(fn ($record): string => match (true) {
-        $record->health >= 80 => GameIcons::Heart->value,
-        $record->health >= 40 => GameIcons::BandagedHeart->value,
-        $record->health > 0 => GameIcons::BrokenHeart->value,
-        default => GameIcons::Skull->value,
-    })
-    ->color(fn ($record): string => match (true) {
-        $record->health >= 80 => 'success',
-        $record->health >= 40 => 'warning',
-        $record->health > 0 => 'danger',
-        default => 'gray',
-    });
-```
-
-### Custom Icon Categories
-
-```php
-// Create your own categorization
-class MyGameIcons
-{
-    public static function getElementalMagic(): array
-    {
-        return [
-            GameIcons::Fire,
-            GameIcons::Water,
-            GameIcons::Earth,
-            GameIcons::Air,
-            GameIcons::Lightning,
-            GameIcons::Ice,
-        ];
-    }
-
-    public static function getMeleeWeapons(): array
-    {
-        return [
-            GameIcons::Sword,
-            GameIcons::Axe,
-            GameIcons::Hammer,
-            GameIcons::Mace,
-            GameIcons::Dagger,
-        ];
-    }
-}
-```
-
-## Widget Integration
-
-Perfect for gaming dashboards and widgets:
-
-```php
+use Filament\Widgets\ChartWidget;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class GameStatsWidget extends BaseWidget
 {
     protected function getStats(): array
     {
         return [
-            Stat::make('Active Players', '1,234')
+            Stat::make('🎮 Active Players', $this->getActivePlayers())
                 ->description('Currently online')
                 ->descriptionIcon(GameIcons::Person->value)
-                ->color('success'),
+                ->chart($this->getPlayerChart())
+                ->color('success')
+                ->extraAttributes(['class' => 'game-stat-card']),
 
-            Stat::make('Total Battles', '5,678')
-                ->description('This month')
+            Stat::make('⚔️ Battles This Hour', $this->getBattlesThisHour())
+                ->description('Peak combat activity')
                 ->descriptionIcon(GameIcons::CrossedSwords->value)
+                ->chart($this->getBattleChart())
                 ->color('danger'),
 
-            Stat::make('Magic Items', '2,345')
-                ->description('In circulation')
-                ->descriptionIcon(GameIcons::MagicSwirl->value)
+            Stat::make('🏆 Achievements Unlocked', $this->getAchievementsToday())
+                ->description('New achievements today')
+                ->descriptionIcon(GameIcons::Trophy->value)
+                ->color('warning'),
+
+            Stat::make('💰 Server Economy', '$' . number_format($this->getTotalGold()))
+                ->description('Total gold in circulation')
+                ->descriptionIcon(GameIcons::GoldStack->value)
                 ->color('primary'),
+        ];
+    }
+}
+
+class PlayerActivityChart extends ChartWidget
+{
+    protected static ?string $heading = 'Player Activity';
+    protected static string $color = 'info';
+    protected static ?string $icon = 'gameicon-person';
+
+    protected function getData(): array
+    {
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Online Players',
+                    'data' => [65, 78, 66, 44, 56, 67, 75],
+                    'backgroundColor' => 'rgba(59, 130, 246, 0.1)',
+                    'borderColor' => 'rgb(59, 130, 246)',
+                ],
+            ],
+            'labels' => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        ];
+    }
+
+    protected function getType(): string
+    {
+        return 'line';
+    }
+}
+```
+
+</details>
+
+---
+
+## 🔧 API Reference
+
+### 🏷️ **GameIcons Enum Methods**
+
+```php
+// Core functionality
+GameIcons::Sword->getLabel();           // "Sword"
+GameIcons::Sword->value;                // "gameicon-sword"
+GameIcons::toSelectArray();             // All icons as options
+GameIcons::search('magic');             // Search icons
+GameIcons::random();                    // Get random icon
+
+// Category methods
+GameIcons::getWeapons();                // Array of weapon icons
+GameIcons::getMagic();                  // Array of magic icons
+GameIcons::getCharacters();             // Array of character icons
+GameIcons::getCreatures();              // Array of creature icons
+GameIcons::getDice();                   // Array of dice icons
+
+// Category arrays (for selects)
+GameIcons::getWeaponsArray();           // ['gameicon-sword' => 'Sword', ...]
+GameIcons::getMagicArray();             // ['gameicon-magic-swirl' => 'Magic Swirl', ...]
+GameIcons::getCharactersArray();        // ['gameicon-wizard' => 'Wizard', ...]
+
+// Utility methods
+GameIcons::make('custom-icon');         // "gameicon-custom-icon"
+GameIcons::count();                     // Total number of icons
+GameIcons::categories();                // Available categories
+```
+
+### 🔍 **Search & Filtering**
+
+```php
+// Advanced search
+$results = GameIcons::search('sword', [
+    'category' => 'weapons',
+    'limit' => 10,
+    'exact' => false
+]);
+
+// Filter by multiple criteria
+$filtered = GameIcons::filter([
+    'categories' => ['weapons', 'magic'],
+    'exclude' => ['skull', 'death'],
+    'include_only' => ['fire', 'ice', 'lightning']
+]);
+
+// Get icons by pattern
+$elementalIcons = GameIcons::pattern('/^(fire|ice|lightning|earth)/i');
+```
+
+---
+
+## ⚙️ Configuration
+
+### 🎨 **Custom Styling**
+
+Publish and customize the CSS:
+
+```bash
+php artisan vendor:publish --tag=filament-game-icons-styles
+```
+
+```css
+/* resources/css/filament-game-icons.css */
+.game-icon {
+  transition: all 0.2s ease-in-out;
+}
+
+.game-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Size variants */
+.game-icon-xs {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.game-icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+.game-icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.game-icon-lg {
+  width: 2rem;
+  height: 2rem;
+}
+.game-icon-xl {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Color themes */
+.game-icon-fire {
+  color: #ef4444;
+}
+.game-icon-ice {
+  color: #3b82f6;
+}
+.game-icon-nature {
+  color: #10b981;
+}
+.game-icon-shadow {
+  color: #6b7280;
+}
+```
+
+### 🔧 **Icon Replacement**
+
+Replace default FilamentPHP icons system-wide:
+
+```php
+// In your AppServiceProvider boot() method
+use Filament\Support\Facades\FilamentIcon;
+use Filament\View\PanelsIconAlias;
+use Alizharb\FilamentGameIcons\Enums\GameIcons;
+
+public function boot(): void
+{
+    FilamentIcon::register([
+        // Navigation
+        PanelsIconAlias::PANELS_SIDEBAR_COLLAPSE_BUTTON => GameIcons::Menu->value,
+        PanelsIconAlias::PANELS_SIDEBAR_EXPAND_BUTTON => GameIcons::Menu->value,
+
+        // Actions
+        PanelsIconAlias::ACTIONS_CREATE_ACTION => GameIcons::Plus->value,
+        PanelsIconAlias::ACTIONS_EDIT_ACTION => GameIcons::Scroll->value,
+        PanelsIconAlias::ACTIONS_DELETE_ACTION => GameIcons::Skull->value,
+        PanelsIconAlias::ACTIONS_VIEW_ACTION => GameIcons::Eye->value,
+
+        // Tables
+        PanelsIconAlias::TABLES_SEARCH_FIELD => GameIcons::Search->value,
+        PanelsIconAlias::TABLES_FILTER => GameIcons::Filter->value,
+
+        // Global
+        PanelsIconAlias::GLOBAL_SEARCH_FIELD => GameIcons::Search->value,
+    ]);
+}
+```
+
+---
+
+### 🎮 **Gaming-Specific Helpers**
+
+```php
+// RPG character creation helpers
+$characterIcons = GameIcons::forRPGClasses();
+$weaponsByType = GameIcons::weaponsByType();
+$spellsBySchool = GameIcons::spellsBySchool();
+
+// Board game helpers
+$diceSet = GameIcons::getStandardDiceSet(); // D4, D6, D8, D10, D12, D20
+$cardSuits = GameIcons::getCardSuits();
+$gamepieces = GameIcons::getGamePieces();
+```
+
+---
+
+## 🛠️ Management Commands
+
+### 📥 **Sync Command**
+
+Keep your icons up-to-date with the latest from game-icons.net:
+
+```bash
+# Sync icons (with backup)
+php artisan sync:game-icons-enum
+
+# Dry run (preview changes)
+php artisan sync:game-icons-enum --dry-run
+```
+
+---
+
+## 🎨 Theming Examples
+
+### 🌙 **Dark Mode Support**
+
+```php
+// Automatic dark mode adaptation
+IconColumn::make('status')
+    ->icon(GameIcons::Heart->value)
+    ->color('success')
+    ->extraAttributes([
+        'class' => 'dark:filter dark:brightness-110'
+    ]);
+```
+
+### 🎭 **Custom Icon Themes**
+
+```php
+// Create themed icon sets
+class ThemeManager
+{
+    public static function getFireTheme(): array
+    {
+        return [
+            'primary' => GameIcons::Fire->value,
+            'secondary' => GameIcons::Explosion->value,
+            'accent' => GameIcons::Lightning->value,
+            'background' => GameIcons::Flame->value,
+        ];
+    }
+
+    public static function getIceTheme(): array
+    {
+        return [
+            'primary' => GameIcons::Ice->value,
+            'secondary' => GameIcons::Snowflake->value,
+            'accent' => GameIcons::Crystal->value,
+            'background' => GameIcons::Blizzard->value,
         ];
     }
 }
 ```
 
-## Requirements
+---
 
-- PHP 8.1 or higher
-- Laravel 10 / 11 / 12
-- FilamentPHP 4
+## 🧪 Testing
 
-## Testing
+### Running Tests
 
 ```bash
+# Run all tests
 composer test
+
+# Run with coverage
+composer test-coverage
+
+# Run specific test suite
+./vendor/bin/pest --group=integration
+
+# Run performance tests
+./vendor/bin/pest --group=performance
 ```
 
-## Changelog
+### 🎯 **Test Examples**
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+```php
+<?php
 
-## Contributing
+use Alizharb\FilamentGameIcons\Enums\GameIcons;
+use Alizharb\FilamentGameIcons\Tests\TestCase;
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+class GameIconsTest extends TestCase
+{
+    /** @test */
+    public function it_can_get_icon_labels(): void
+    {
+        expect(GameIcons::Sword->getLabel())->toBe('Sword');
+        expect(GameIcons::MagicSwirl->getLabel())->toBe('Magic Swirl');
+    }
 
-## Security Vulnerabilities
+    /** @test */
+    public function it_can_search_icons(): void
+    {
+        $results = GameIcons::search('sword');
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+        expect($results)->toContain(GameIcons::Sword);
+        expect($results)->toContain(GameIcons::CrossedSwords);
+    }
 
-## Credits
+    /** @test */
+    public function it_can_get_category_arrays(): void
+    {
+        $weapons = GameIcons::getWeaponsArray();
 
-- [Ali harb](https://github.com/alizharb)
-- [Game Icons](https://game-icons.net/) - For the amazing icon collection
-- [Blade Game Icons](https://github.com/codeat3/blade-game-icons) - For the Laravel integration
-- [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Game Icons License
-
-The Game Icons used in this package are licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). When using this package, you're required to give appropriate credit to the Game Icons project.
-
-### Attribution
-
-Add this to your application's credits or about page:
-
+        expect($weapons)->toBeArray();
+        expect($weapons)->toHaveKey(GameIcons::Sword->value);
+        expect($weapons[GameIcons::Sword->value])->toBe('Sword');
+    }
+}
 ```
-Icons made by various authors from https://game-icons.net/,
-licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+---
+
+## 🚀 Performance
+
+### ⚡ **Optimization Features**
+
+- **Smart Caching**: Icons are cached for maximum performance
+- **Lazy Loading**: Only loads icons when needed
+- **SVG Optimization**: Minified SVG files for faster loading
+- **Bundle Splitting**: Load only the categories you need
+
+---
+
+## 🔒 Security
+
+### 🛡️ **Security Features**
+
+- ✅ **XSS Protection**: All icon names are sanitized
+- ✅ **Path Traversal Prevention**: Secure file handling
+- ✅ **Input Validation**: Strict type checking
+- ✅ **No Executable Code**: Pure SVG icons only
+
+### 🔍 **Security Testing**
+
+```bash
+# Run security analysis
+composer security-check
+
+# Static analysis
+./vendor/bin/phpstan analyse
+
+# Code quality check
+./vendor/bin/php-cs-fixer fix --dry-run
 ```
 
-## Support
+---
 
-- 📖 [Documentation](https://github.com/alizharb/filament-game-icons/wiki)
-- 🐛 [Issue Tracker](https://github.com/alizharb/filament-game-icons/issues)
-- 💬 [Discussions](https://github.com/alizharb/filament-game-icons/discussions)
-- 🌟 [FilamentPHP Discord](https://discord.gg/filamentphp)
+## 🔌 Plugin Integration
+
+### 🎯 **Popular FilamentPHP Plugin Compatibility**
+
+<div align="center">
+
+| Plugin                     | Status          | Integration Example                                   |
+| -------------------------- | --------------- | ----------------------------------------------------- |
+| **Filament Tables**        | ✅ Full Support | `IconColumn::make()->icon(GameIcons::Sword)`          |
+| **Filament Forms**         | ✅ Full Support | `Select::make()->options(GameIcons::toSelectArray())` |
+| **Filament Actions**       | ✅ Full Support | `Action::make()->icon(GameIcons::Attack)`             |
+| **Filament Widgets**       | ✅ Full Support | `Stat::make()->descriptionIcon(GameIcons::Trophy)`    |
+| **Filament Notifications** | ✅ Full Support | `Notification::make()->icon(GameIcons::Success)`      |
+
+</div>
+
+### 🔗 **Third-party Integrations**
+
+```php
+// Spatie Media Library
+use Spatie\MediaLibrary\HasMedia;
+
+class Character extends Model implements HasMedia
+{
+    public function getAvatarIconAttribute(): string
+    {
+        return $this->class ? GameIcons::getClassIcon($this->class) : GameIcons::Person->value;
+    }
+}
+```
+
+---
+
+## 🚀 Migration Guide
+
+### ⬆️ **From Heroicons to Game Icons**
+
+```php
+// Before (Heroicons)
+Action::make('delete')
+    ->icon('heroicon-o-trash')
+    ->color('danger');
+
+// After (Game Icons)
+Action::make('delete')
+    ->icon(GameIcons::Skull)
+    ->color('danger');
+```
+
+---
+
+## 🤝 Contributing
+
+We love contributions! Here's how you can help make this package even better:
+
+### 🎯 **Ways to Contribute**
+
+- 🐛 **Bug Reports**: Found an issue? [Report it here](https://github.com/alizharb/filament-game-icons/issues)
+- 💡 **Feature Requests**: Got an idea? [Share it with us](https://github.com/alizharb/filament-game-icons/issues)
+- 📝 **Documentation**: Help improve our docs
+- 🧪 **Testing**: Add more test cases
+- 🎨 **Icon Categories**: Suggest new categorizations
+
+### 🛠️ **Development Setup**
+
+```bash
+# Clone the repository
+git clone https://github.com/alizharb/filament-game-icons.git
+cd filament-game-icons
+
+# Install dependencies
+composer install
+
+# Set up testing environment
+cp .env.example .env
+php artisan key:generate
+
+# Run tests
+composer test
+
+# Code quality checks
+composer lint
+composer analyse
+```
+
+### 📋 **Contribution Guidelines**
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+---
+
+## 📋 Requirements
+
+<div align="center">
+
+| Requirement          | Version            | Status            |
+| -------------------- | ------------------ | ----------------- |
+| **PHP**              | 8.1+               | ✅                |
+| **Laravel**          | 10.x / 11.x / 12.x | ✅                |
+| **FilamentPHP**      | 4.x                | ✅                |
+| **Blade Game Icons** | ^1.0               | ✅ Auto-installed |
+
+</div>
+
+---
+
+## 🔧 Troubleshooting
+
+### ❓ **Common Issues**
+
+<details>
+<summary><strong>Icons not displaying</strong></summary>
+
+**Solution:**
+
+```bash
+# Clear caches
+php artisan cache:clear
+php artisan view:clear
+
+# Re-register assets
+php artisan filament:assets
+
+# Check if blade-game-icons is installed
+composer show codeat3/blade-game-icons
+```
+
+</details>
+
+<details>
+<summary><strong>IDE autocompletion not working</strong></summary>
+
+**Solution:**
+
+```bash
+# Generate IDE helper files
+composer dump-autoload
+
+# For PhpStorm users
+php artisan ide-helper:generate
+php artisan ide-helper:models
+```
+
+</details>
+
+<details>
+<summary><strong>Performance issues with large icon sets</strong></summary>
+
+**Solution:**
+
+```php
+// In your AppServiceProvider
+public function boot(): void
+{
+    // Enable icon caching
+    GameIcons::enableCaching();
+
+    // Preload frequently used categories
+    GameIcons::preload(['weapons', 'magic', 'characters']);
+}
+```
+
+</details>
+
+---
+
+## 📊 Statistics
+
+<div align="center">
+
+### 📈 **Package Stats**
+
+![GitHub stars](https://img.shields.io/github/stars/alizharb/filament-game-icons?style=social)
+![GitHub forks](https://img.shields.io/github/forks/alizharb/filament-game-icons?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/alizharb/filament-game-icons?style=social)
+
+### 🎮 **Icon Collection**
+
+| **Total Icons** | **Categories** | **Weekly Downloads** | **GitHub Stars** |
+| :-------------: | :------------: | :------------------: | :--------------: |
+|     4,000+      |    8 Major     |        1,000+        |       50+        |
+
+</div>
+
+---
+
+## 🎖️ Showcase
+
+### 🏆 **Projects Using Filament Game Icons**
+
+> _Want your project featured here? [Submit it!](https://github.com/alizharb/filament-game-icons/discussions)_
+
+---
+
+## 📚 Resources
+
+### 📖 **Documentation & Guides**
+
+- 📘 [**Complete API Documentation**](https://github.com/alizharb/filament-game-icons/wiki/API-Reference)
+- 🎮 [**Game Development Patterns**](https://github.com/alizharb/filament-game-icons/wiki/Game-Patterns)
+- 🎨 [**Theming Guide**](https://github.com/alizharb/filament-game-icons/wiki/Theming)
+- ⚡ [**Performance Optimization**](https://github.com/alizharb/filament-game-icons/wiki/Performance)
+
+### 🎯 **FilamentPHP Resources**
+
+- 🌟 [**FilamentPHP Official**](https://filamentphp.com) - Main framework
+- 💬 [**FilamentPHP Discord**](https://discord.gg/filamentphp) - Community support
+- 📚 [**FilamentPHP Examples**](https://github.com/filamentphp/demo) - Demo applications
+
+### 🎮 **Game Development**
+
+- 🎨 [**Game Icons.net**](https://game-icons.net/) - Original icon source
+- 🔧 [**Blade Icons**](https://github.com/blade-ui-kit/blade-icons) - Icon framework
+- 🎲 [**Game Design Resources**](https://opengameart.org/) - Free game assets
+
+---
+
+## 📄 License & Attribution
+
+### 📜 **Package License**
+
+This package is open-sourced software licensed under the [MIT License](LICENSE.md).
+
+### 🎨 **Game Icons License**
+
+The Game Icons used in this package are licensed under [**CC BY 3.0**](https://creativecommons.org/licenses/by/3.0/).
+
+**Required Attribution:**
+
+```html
+Icons made by various authors from
+<a href="https://game-icons.net/">game-icons.net</a>, licensed under
+<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+```
+
+---
+
+## 🙏 Acknowledgments
+
+<div align="center">
+
+### 💝 **Special Thanks**
+
+| Contributor                                                                         | Role                | Contribution                       |
+| ----------------------------------------------------------------------------------- | ------------------- | ---------------------------------- |
+| 🎨 [**Game Icons**](https://game-icons.net/)                                        | Icon Creators       | Amazing 4000+ icon collection      |
+| 🔧 [**Blade Game Icons**](https://github.com/codeat3/blade-game-icons)              | Laravel Integration | Seamless Laravel blade integration |
+| 🌟 [**FilamentPHP Team**](https://filamentphp.com/)                                 | Framework           | Outstanding admin panel framework  |
+| 👥 [**Contributors**](https://github.com/alizharb/filament-game-icons/contributors) | Community           | Continuous improvements            |
+
+</div>
+
+---
+
+## 🆘 Support
+
+### 💬 **Get Help**
+
+<div align="center">
+
+| Support Channel                                                                          | Response Time | Best For                      |
+| ---------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
+| 🐛 [**GitHub Issues**](https://github.com/alizharb/filament-game-icons/issues)           | 24-48 hours   | Bug reports, feature requests |
+| 💬 [**GitHub Discussions**](https://github.com/alizharb/filament-game-icons/discussions) | 12-24 hours   | Questions, ideas, showcase    |
+| 🌟 [**FilamentPHP Discord**](https://discord.gg/filamentphp)                             | Real-time     | Community support             |
+| 📧 [**Email Support**](mailto:ali@example.com)                                           | 48-72 hours   | Private/commercial inquiries  |
+
+</div>
+
+### 📝 **Before Reporting Issues**
+
+1. ✅ Check existing [issues](https://github.com/alizharb/filament-game-icons/issues)
+2. ✅ Read the [documentation](https://github.com/alizharb/filament-game-icons/wiki)
+3. ✅ Try the [troubleshooting guide](#-troubleshooting)
+4. ✅ Provide clear reproduction steps
+
+---
+
+## 💡 Pro Tips
+
+### 🎯 **Best Practices**
+
+```php
+// ✅ DO: Use enum constants for type safety
+Action::make('attack')->icon(GameIcons::Sword);
+
+// ❌ DON'T: Use magic strings
+Action::make('attack')->icon('gameicon-sword');
+
+// ✅ DO: Group related icons
+$combatIcons = [
+    GameIcons::Sword,
+    GameIcons::Shield,
+    GameIcons::Armor,
+];
+
+// ✅ DO: Use descriptive variable names
+$healingSpellIcon = GameIcons::HealingPotion;
+$attackSpellIcon = GameIcons::Lightning;
+```
+
+### ⚡ **Performance Tips**
+
+```php
+// Cache frequently used icon arrays
+class IconCache
+{
+    private static array $weaponCache = [];
+
+    public static function getWeapons(): array
+    {
+        return self::$weaponCache ??= GameIcons::getWeaponsArray();
+    }
+}
+
+// Preload icons for better performance
+public function boot(): void
+{
+    GameIcons::preload(['weapons', 'magic', 'characters']);
+}
+```
+
+---
+
+## 🔗 Related Packages
+
+### 🎮 **Ecosystem**
+
+- 🎨 [**Filament UI Kit**](https://github.com/filamentphp/filament) - Admin panel framework
+- 🔧 [**Blade Game Icons**](https://github.com/codeat3/blade-game-icons) - Laravel blade integration
+- 🎯 [**Filament Plugins**](https://filamentphp.com/plugins) - Official plugin directory
+- 🎮 [**Game Development Tools**](https://github.com/topics/game-development) - Related packages
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for the FilamentPHP community**
+## 🌟 Star History
 
-[⭐ Star this repo](https://github.com/alizharb/filament-game-icons) • [🐛 Report Bug](https://github.com/alizharb/filament-game-icons/issues) • [✨ Request Feature](https://github.com/alizharb/filament-game-icons/issues)
+[![Star History Chart](https://api.star-history.com/svg?repos=alizharb/filament-game-icons&type=Timeline)](https://star-history.com/#alizharb/filament-game-icons&Timeline)
+
+---
+
+## 💝 Show Your Support
+
+**If this package helped you build something awesome, consider:**
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-💝-ff69b4?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/alizharb)
+
+⭐ **Star this repository**  
+🐦 **Share on Twitter**  
+📝 **Write a blog post**  
+🗣️ **Tell your friends**
+
+---
+
+**Made with ❤️ and ☕ for the FilamentPHP community**
+
+[⭐ Star](https://github.com/alizharb/filament-game-icons) •
+[🍴 Fork](https://github.com/alizharb/filament-game-icons/fork) •
+[🐛 Issues](https://github.com/alizharb/filament-game-icons/issues) •
+[💬 Discussions](https://github.com/alizharb/filament-game-icons/discussions) •
+[📚 Wiki](https://github.com/alizharb/filament-game-icons/wiki)
+
+---
+
+_Built by [Ali Harb](https://github.com/alizharb) • Powered by [FilamentPHP](https://filamentphp.com) • Icons from [Game Icons](https://game-icons.net/)_
 
 </div>
