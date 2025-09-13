@@ -1,9 +1,5 @@
 /* Transparent Game Icons for FilamentPHP */
 
-svg.fi-sidebar-item-icon path {
-  fill: currentColor !important;
-}
-
-svg.fi-sidebar-item-icon path:first-child:nth-last-child(n + 2) {
-  display: none !important;
+svg.fi-icon path:first-of-type:nth-last-of-type(n+2) {
+    display: none !important;
 }
